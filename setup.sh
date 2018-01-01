@@ -83,7 +83,7 @@ apt-get install -y language-pack-en strongswan strongswan-ikev2 libstrongswan-st
 
 
 ETH0ORSIMILAR=$(ip route get 8.8.8.8 | awk -- '{printf $5}')
-IP=$(ifdata -pa $ETH0ORSIMILAR)
+IP=`curl -s checkip.dyndns.com | cut -d' ' -f 6  | cut -d'<' -f 1`
 
 echo
 echo "Network interface: ${ETH0ORSIMILAR}"
